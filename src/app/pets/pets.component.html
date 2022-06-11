@@ -1,0 +1,19 @@
+<h2>My Pets</h2>
+<div>
+  <label>Pet name:
+    <input #petame />
+  </label>
+  <button (click)="add(petame.value); petame.value=''">
+    add
+  </button>
+</div>
+
+<ul class="pets">
+  <li *ngFor="let pet of pets">
+    <a>
+      <span class="badge">{{pet.name}}</span>
+    </a>
+    <button class="delete" title="delete pet"
+      (click)="delete(pet)">x</button>
+  </li>
+</ul>

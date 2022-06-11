@@ -1,0 +1,19 @@
+<div *ngIf="hero">
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div *ngIf="hero.pet"><span>pet: </span>{{hero.pet.name}}</div>
+  <div>
+    <label>Name:<input [(ngModel)]="hero.name" placeholder="name"/></label><br>
+  </div>
+  <div>
+    <label for="search-box">Choose_Pet:</label><br>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+    <ul class="search-result">
+    <li *ngFor="let pet of pets | async">
+      <a (click)="savePet(pet)">{{pet.name}}</a>
+    </li>
+    </ul>
+	</div>
+  <button (click)="save()">Save</button>
+	<button (click)="goBack()">Go Back</button>
+</div>
